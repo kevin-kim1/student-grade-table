@@ -16,7 +16,6 @@ class App {
       url: "https://sgt.lfzprototypes.com/api/grades",
       success: this.handleGetGradesSuccess,
       error: this.handleGetGradesError
-
     });
   }
 }
