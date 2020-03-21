@@ -4,7 +4,7 @@ class App {
     console.log(error);
   }
   handleGetGradesSuccess(grades) {
-    console.log(grades);
+    this.gradeTable.updateGrades(grades);
   }
 
   constructor(gradeTable) {
