@@ -5,12 +5,20 @@ class App {
   }
   handleGetGradesSuccess(grades) {
     this.gradeTable.updateGrades(grades);
+    var total = 0;
+    var average = 0;
+    for(var i = 0; i < grades.length; i++) {
+      total += grades[i].grade;
+    }
+    average = total / grades.length;
+    this.pageHeader.updateAverage(average);
   }
 
-  constructor(gradeTable) {
+  constructor(gradeTable, pageHeader) {
     this.handleGetGradesError = this.handleGetGradesError.bind(this);
     this.handleGetGradesSuccess = this.handleGetGradesSuccess.bind(this);
     this.gradeTable = gradeTable;
+    this.pageHeader = pageHeader;
   }
 
   getGrades() {
