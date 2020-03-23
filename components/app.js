@@ -1,5 +1,14 @@
 class App {
-
+  constructor(gradeTable, pageHeader, gradeForm) {
+    this.handleGetGradesError = this.handleGetGradesError.bind(this);
+    this.handleGetGradesSuccess = this.handleGetGradesSuccess.bind(this);
+    this.createGrade = this.createGrade.bind(this);
+    this.handleCreateGradeError = this.handleCreateGradeError.bind(this);
+    this.handleCreateGradeSuccess = this.handleCreateGradeSuccess.bind(this);
+    this.gradeTable = gradeTable;
+    this.pageHeader = pageHeader;
+    this.gradeForm = gradeForm;
+  }
   handleGetGradesError(error) {
     console.log(error);
   }
@@ -13,30 +22,6 @@ class App {
     average = total / grades.length;
     this.pageHeader.updateAverage(average);
   }
-
-  createGrades(name, course, grade) {
-    console.log(name);
-    console.log(course);
-    console.log(grade);
-  }
-  handleCreateGradeError(error) {
-    console.log(error);
-  }
-  handleCreateGradeSuccess() {
-    this.getGrades();
-  }
-
-  constructor(gradeTable, pageHeader, gradeForm) {
-    this.handleGetGradesError = this.handleGetGradesError.bind(this);
-    this.handleGetGradesSuccess = this.handleGetGradesSuccess.bind(this);
-    this.createGrades = this.createGrades.bind(this);
-    this.handleCreateGradeError = this.handleCreateGradeError.bind(this);
-    this.handleCreateGradeSuccess = this.handleCreateGradeSuccess.bind(this);
-    this.gradeTable = gradeTable;
-    this.pageHeader = pageHeader;
-    this.gradeForm = gradeForm;
-  }
-
   getGrades() {
     $.ajax({
       method: "GET",
@@ -47,6 +32,28 @@ class App {
     })
   }
   start() {
+    this.getGrades();
+    this.gradeForm.onSubmit(this.createGrade);
+  }
+
+  createGrade(name, course, grade) {
+    $.ajax({
+      method: "POST",
+      url: "https://sgt.lfzprototypes.com/api/grades",
+      headers: { "X-Access-Token": "YZqN7r3k" },
+      data: {
+              "name": name,
+              "course": course,
+              "grade": grade
+            },
+      success: this.handleCreateGradeSuccess,
+      error: this.handleCreateGradeError
+    });
+  }
+  handleCreateGradeError(error) {
+    console.error("Request Not Wokring");
+  }
+  handleCreateGradeSuccess() {
     this.getGrades();
   }
 }

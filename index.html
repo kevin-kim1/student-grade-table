@@ -43,44 +43,44 @@
         </tr>
       </tbody>
     </table>
-    <div id="form-section" class="col-sm-3 mt-1 pr-2">
+    <div class="col-sm-3 mt-1 pr-2">
       <h3>Add Grade</h3>
-      <form class="pt-3">
+      <form id="form-section" class="pt-3">
         <div class="form-group">
           <label class="sr-only" for="inlineFormInputGroup">Name</label>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <div class="input-group-text fas fa-user"><i class="fas fa-user">@</i></div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Student Name">
+            <input name="name" type="text" class="form-control" placeholder="Student Name">
           </div>
           <div class="form-group">
-            <label class="sr-only" for="inlineFormInputGroup">Course</label>
+            <label class="sr-only">Course</label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <div class="input-group-text">@</div>
               </div>
-              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Student Course">
+              <input name="course" type="text" class="form-control" placeholder="Student Course">
             </div>
             <div class="form-group">
-              <label class="sr-only" for="inlineFormInputGroup">Grade</label>
+              <label class="sr-only">Grade</label>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <div class="input-group-text">@</div>
                 </div>
-                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Student Grade">
+                <input name="grade" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Student Grade">
               </div>
-              <button type="submit" class="btn btn-success mr-2">Add</button>
+              <button id="btn-form" type="submit" class="btn btn-success mr-2">Add</button>
               <button type="submit" class="btn btn-light btn-outline-secondary btn-cancel">Cancel</button>
       </form>
     </div>
 
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-  <script src="/components/app.js"></script>
   <script src="/components/grade-table.js"></script>
   <script src="/components/page-header.js"></script>
   <script src="/components/grade-form.js"></script>
+  <script src="/components/app.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
