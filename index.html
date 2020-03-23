@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
   <title>Student Grade Table</title>
 </head>
+
 <body>
   <div>
     <div id="student-table-header" class="row mx-auto">
       <h1 class="col-sm-9 mt-4 mb-2">Student Grade Table </h1>
-      <h2 class="col-sm-3 mt-4 mb-2 pt-1">Average Score  <span id="grade-average" class="badge badge-secondary"></span></h2>
+      <h2 class="col-sm-3 mt-4 mb-2 pt-1">Average Score <span id="grade-average" class="badge badge-secondary"></span>
+      </h2>
     </div>
   </div>
   <hr>
@@ -31,23 +34,20 @@
     <div class="col-sm-3 mt-1 pr-2">
       <h3>Add Grade</h3>
       <form id="form-section" class="pt-3">
-        <div class="form-group">
-          <div class="input-group mb-3">
-            <p class="input-group-text fas fa-user"></p>
-            <input name="name" type="text" class="form-control" placeholder="Student Name">
-          </div>
-          <div class="form-group">
-            <div class="input-group mb-3">
-                <p class="input-group-text fas fa-list-ul"></p>
-               <input name="course" type="text" class="form-control" placeholder="Student Course">
-            </div>
-          <div class="form-group">
-              <div class="input-group mb-3">
-                  <p class="input-group-text fas fa-gradaution-cap"></p>
-                 <input name="grade" type="text" class="form-control" placeholder="Student Grade">
-              </div>
-              <button id="btn-form" type="submit" class="btn btn-success mr-2">Add</button>
-              <button type="submit" class="btn btn-light btn-outline-secondary btn-cancel">Cancel</button>
+        <div class="input-group mb-3">
+          <p class="input-group-text fas fa-user"></p>
+          <input name="name" type="text" class="form-control" placeholder="Student Name">
+        </div>
+        <div class="input-group mb-3">
+          <p class="input-group-text fas fa-list-ul"></p>
+          <input name="course" type="text" class="form-control" placeholder="Student Course">
+        </div>
+        <div class="input-group mb-3">
+          <p class="input-group-text fas fa-graduation-cap"></p>
+          <input name="grade" type="text" class="form-control" placeholder="Student Grade">
+        </div>
+        <button id="btn-form" type="submit" class="btn btn-success mr-2">Add</button>
+        <button type="submit" class="btn btn-light btn-outline-secondary btn-cancel">Cancel</button>
       </form>
     </div>
 
@@ -59,4 +59,5 @@
   <script src="/components/app.js"></script>
   <script src="main.js"></script>
 </body>
+
 </html>
