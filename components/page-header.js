@@ -4,6 +4,7 @@ class PageHeader {
   }
 
   updateAverage(newAverage) {
-    console.log(newAverage);
+    var gradeAverage = document.getElementById("grade-average");
+    gradeAverage.textContent = newAverage;
   }
 }
