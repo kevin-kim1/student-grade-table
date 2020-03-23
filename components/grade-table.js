@@ -18,7 +18,7 @@ class GradeTable {
       row.appendChild(name);
       row.appendChild(course);
       row.appendChild(grade);
-      row.classList.add('table-sm');
+      row.classList.add("table-responsive-md");
       if(i === 0 || i % 2 === 0) {
         row.classList.add("table-secondary");
       }
