@@ -1,5 +1,6 @@
 var table = document.getElementById("grade-table");
-var gradeTable = new GradeTable(table);
+var noGradeElements = document.getElementById("no-grades");
+var gradeTable = new GradeTable(table, noGradeElements);
 var header = document.getElementById("student-table-header");
 var tableHeader =  new PageHeader(header);
 var form = document.getElementById("form-section");
