@@ -5,13 +5,18 @@ class App {
     this.createGrade = this.createGrade.bind(this);
     this.handleCreateGradeError = this.handleCreateGradeError.bind(this);
     this.handleCreateGradeSuccess = this.handleCreateGradeSuccess.bind(this);
+    this.deleteGrade = this.deleteGrade.bind(this);
+    this.handleDeleteGradeError = this.handleDeleteGradeError.bind(this);
+    this.handleDeleteGradeSuccess = this.handleDeleteGradeSuccess.bind(this);
     this.gradeTable = gradeTable;
     this.pageHeader = pageHeader;
     this.gradeForm = gradeForm;
   }
+
   handleGetGradesError(error) {
     console.log(error);
   }
+
   handleGetGradesSuccess(grades) {
     this.gradeTable.updateGrades(grades);
     var total = 0;
@@ -22,6 +27,7 @@ class App {
     average = total / grades.length;
     this.pageHeader.updateAverage(average);
   }
+
   getGrades() {
     $.ajax({
       method: "GET",
@@ -31,9 +37,11 @@ class App {
       error: this.handleGetGradesError,
     })
   }
+
   start() {
     this.getGrades();
     this.gradeForm.onSubmit(this.createGrade);
+    this.gradeTable.onDeleteClick(this.deleteGrade);
   }
 
   createGrade(name, course, grade) {
@@ -50,10 +58,26 @@ class App {
       error: this.handleCreateGradeError
     });
   }
+
   handleCreateGradeError(error) {
-    console.error("Request Not Wokring");
+    console.error("Request Not Working");
   }
+
   handleCreateGradeSuccess() {
     this.getGrades();
   }
+
+  deleteGrade(id) {
+    console.log(id);
+  }
+
+  handleDeleteGradeError(error) {
+    console.error(error);
+  }
+
+  handleDeleteGradeSuccess() {
+    this.getGrades();
+  }
+
+
 }
